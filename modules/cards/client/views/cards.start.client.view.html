@@ -1,0 +1,13 @@
+<section>
+<div>Timer: {{vm.timer}}</div>
+<div ng-repeat="card in vm.deck" class="btn" style="border: 2px solid black; padding-bottom: 10%" ng-click="vm.selectedCard = card">
+	{{card.suit}}<br>
+	{{card.name}}
+</div>
+<hr>
+<div id="footer">
+	<div ng-repeat="suit in vm.suits" class="btn" style="border: 2px solid black; padding-bottom: 10%; background-color: burlywood" ng-click="vm.addCardToProgress(suit)">
+	{{suit}}
+	</div>
+</div>
+</section>
