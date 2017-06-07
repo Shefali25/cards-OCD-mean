@@ -4,6 +4,7 @@
  * Module dependencies
  */
 var path = require('path'),
+  _ = require('lodash'),
   mongoose = require('mongoose'),
   Card = mongoose.model('Card'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
@@ -46,9 +47,7 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
   var card = req.card;
 
-  card.title = req.body.title;
-  card.content = req.body.content;
-
+  card = _.extend(card, req.body);
   card.save(function (err) {
     if (err) {
       return res.status(422).send({

@@ -15,8 +15,16 @@ hr {
 }
 
 #footer {
-  position: fixed;
+  position: sticky;
   bottom: 1px;
   width: 100%;
+  text-align: center;
   background-color: black;
+}
+
+.fixed-card {
+  border: 2px solid black; 
+  padding-bottom: 10%; 
+  background-color: darkcyan; 
+  width: 10%;
 }

@@ -1,13 +1,14 @@
 <section>
 <div>Timer: {{vm.timer}}</div>
-<div ng-repeat="card in vm.deck" class="btn" style="border: 2px solid black; padding-bottom: 10%" ng-click="vm.selectedCard = card">
+<div ng-repeat="card in vm.deck" class="btn" style="border: 2px solid black; padding-bottom: 8%; width: 10%; margin:0.5%" ng-click="vm.selectedCard = card">
 	{{card.suit}}<br>
 	{{card.name}}
 </div>
 <hr>
 <div id="footer">
-	<div ng-repeat="suit in vm.suits" class="btn" style="border: 2px solid black; padding-bottom: 10%; background-color: burlywood" ng-click="vm.addCardToProgress(suit)">
-	{{suit}}
+	<div ng-repeat="suit in vm.suits" class="btn fixed-card" ng-click="vm.addCardToProgress(suit.name)">
+	{{suit.name}}<br>
+	{{suit.value || ""}}
 	</div>
 </div>
 </section>
