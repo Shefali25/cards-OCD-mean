@@ -70,7 +70,7 @@
       vm.authentication.user = response;
       Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Signup successful!' });
       // And redirect to the previous or home page
-      $state.go('cards-start', {userId: vm.authentication.user._id});
+      $state.go('cards-start', { userId: vm.authentication.user._id });
     }
 
     function onUserSignupError(response) {
@@ -83,7 +83,7 @@
       Notification.info({ message: 'Welcome ' + response.firstName });
       // And redirect to the previous or home page
       // $state.go($state.previous.state.name || 'cards-start', $state.previous.params);
-      $state.go('cards-start', {userId: vm.authentication.user._id});
+      $state.go('cards-start', { userId: vm.authentication.user._id });
     }
 
     function onUserSigninError(response) {

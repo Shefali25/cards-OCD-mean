@@ -16,13 +16,13 @@
     vm.selectedCard;
     vm.timer = 0;
     vm.suits = [{
-      name:'Hearts'
-    },{
-      name:'Diamonds'
-    },{
-      name:'Spades'
-    },{
-      name:'Clubs'
+      name: 'Hearts'
+    }, {
+      name: 'Diamonds'
+    }, {
+      name: 'Spades'
+    }, {
+      name: 'Clubs'
     }];
 
     // vm.modelsToWatch = {
@@ -49,7 +49,7 @@
       vm.deck = filterCurrentProgress(vm.deck);
       if (!vm.deck.length) {
         Notification.success({
-          message: 'You have won the game!<br><button ng-click='+refresh()+'>Restart</a><br>',
+          message: 'You have won the game!<br><button ng-click=' + refresh() + '>Restart</a><br>',
           title: 'Congrats!',
           delay: 40000
         });
@@ -69,30 +69,30 @@
       var filteredDeck = deck.slice();
       if (vm.cards[0]) {
         if (vm.cards[0].currentProgress) {
-          outer: for (var singleCard = 0; singleCard < deck.length; singleCard++) {
+          outer: for (var singleCard = 0; singleCard < deck.length; singleCard++) { // eslint-disable-line no-labels
             var cardSuit = deck[singleCard].suit.toLowerCase();
             for (var nameCnt = 0; nameCnt < vm.cards[0].currentProgress[cardSuit].length; nameCnt++) {
               var name = vm.cards[0].currentProgress[cardSuit][nameCnt];
               if (name === deck[singleCard].name) {
                 filteredDeck[singleCard] = null;
-                continue outer;
+                continue outer; // eslint-disable-line no-labels
               }
             }
           }
         }
       }
-      filteredDeck = filteredDeck.filter(function(singleCard) {
+      deck = filteredDeck.filter(function(singleCard) {
         return singleCard != null;
       });
-      return deck = filteredDeck;
+      return deck;
     }
 
     function refresh() {
       var card = vm.cards[0] || {};
       card.currentProgress = null;
       if (card._id) {
-        return card.$update(onSuccess, onError);
-        $state.reload();
+        card.$update(onSuccess, onError);
+        return $state.reload();
       }
     }
 
